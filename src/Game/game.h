@@ -26,7 +26,7 @@ namespace GameXD
 		Player* player;
 		Shape* shape;
 		Shape* shape2;
-		Sprite* rockstar;
+		Sprite* fireplace;
 		Tilemap* tileMap;
 	};
 }

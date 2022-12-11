@@ -29,19 +29,19 @@ namespace GameXD
 		sprite->SetMoveable(true);
 		sprite->SetCollider(true);
 
-		GL::AtlasConfig atlas = GL::AtlasConfig(6, 11, 0, 0, 1, 18);
+		GL::AtlasConfig atlas = GL::AtlasConfig(3, 4, 1, 0, 1, 1);
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(6, 11, 0, 7, 1, 12);
+		atlas = GL::AtlasConfig(3, 4, 0, 1, 1, 3);
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(6, 11, 0, 3, 1, 12);
+		atlas = GL::AtlasConfig(3, 4, 0, 2, 1, 3);
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(6, 11, 0, 9, 1, 12);
+		atlas = GL::AtlasConfig(3, 4, 0, 3, 1, 3);
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(6, 11, 0, 5, 1, 12);
+		atlas = GL::AtlasConfig(3, 4, 0, 0, 1, 3);
 		sprite->AddAnimation(atlas, 10.f);
 
 		this->speed = speed;

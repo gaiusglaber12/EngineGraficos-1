@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
- <tileset firstgid="1" name="engine1_tileset" tilewidth="32" tileheight="32" tilecount="60" columns="10">
-  <image source="../Textures/tileset.png" width="320" height="192"/>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="engine1_tileset" tilewidth="23" tileheight="30" tilecount="690" columns="23">
+  <image source="../Textures/tileset.png" width="736" height="928"/>
   <tile id="0">
    <properties>
     <property name="value" type="bool" value="true"/>

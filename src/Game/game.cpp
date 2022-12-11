@@ -7,7 +7,7 @@ namespace GameXD
 		player = nullptr;
 		shape = nullptr;
 		shape2 = nullptr;
-		rockstar = nullptr;
+		fireplace = nullptr;
 		tileMap = nullptr;
 	}
 
@@ -32,12 +32,14 @@ namespace GameXD
 		shape2->SetColor(1.0f, 0.0f, 1.0f, 1.0f);
 		shape2->SetScale(20.f, 20.f, 10.f);*/
 		
-		rockstar = new Sprite(render);
-		rockstar->Init();
-		rockstar->LoadTexture("../res/Textures/rock.png", true);
-		rockstar->SetPos(0.0f, 100.0f, 0.0f);
-		rockstar->SetScale(55.f, 55.f, 1.0f);
-		rockstar->AddAnimation(2, 3, 25);
+		fireplace = new Sprite(render);
+		fireplace->Init();
+		fireplace->LoadTexture("../res/Textures/bonfire.png", false);
+		fireplace->SetPos(0.0f, 20.0f, 0.0f);
+		fireplace->SetScale(50.f, 50.f, 50.0f);
+		fireplace->SetCollider(true);
+		GL::AtlasConfig atlas = GL::AtlasConfig(5, 1, 0, 0, 1, 5);
+		fireplace->AddAnimation(atlas,10);
 
 		tileMap = new Tilemap(render);
 		tileMap->ImportTileMap("../res/Tiled/engine1_test.tmx", "../res/Textures/tileset.png");
@@ -55,7 +57,7 @@ namespace GameXD
 	void Game::Draw()
 	{
 		tileMap->Draw();
-		rockstar->Draw();
+		fireplace->Draw();
 		/*shape->Draw();
 		shape2->Draw();*/
 		player->Draw();
@@ -81,11 +83,11 @@ namespace GameXD
 			delete shape2;
 			shape2 = nullptr;
 		}
-		if (rockstar != nullptr)
+		if (fireplace != nullptr)
 		{
-			rockstar->DeInit();
-			delete rockstar;
-			rockstar = nullptr;
+			fireplace->DeInit();
+			delete fireplace;
+			fireplace = nullptr;
 		}
 		if (tileMap != nullptr)
 		{
@@ -95,3 +97,4 @@ namespace GameXD
 		}
 	}
 }
+
