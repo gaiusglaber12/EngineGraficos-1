@@ -114,14 +114,19 @@ namespace GL
 				newTile.SetScale(tileWidth, tileHeight, 1.f);
 
 				Frame frame;
+
 				frame.GetUVCords()[0].u = (tileX + tileWidth) / imageWidth;
 				frame.GetUVCords()[0].v = tileY / imageHeight;
+
 				frame.GetUVCords()[1].u = (tileX + tileWidth) / imageWidth; 
 				frame.GetUVCords()[1].v = (tileY + tileHeight) / imageHeight;
+
 				frame.GetUVCords()[2].u = tileX / imageWidth;
 				frame.GetUVCords()[2].v = (tileY + tileHeight) / imageHeight;
+
 				frame.GetUVCords()[3].u = tileX / imageWidth;
 				frame.GetUVCords()[3].v = tileY / imageHeight;
+
 				newTile.SetTextureCoordinates(frame);
 
 				tileX += tileWidth;
