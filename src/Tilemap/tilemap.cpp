@@ -74,13 +74,13 @@ namespace GL
 		if (errorHandler == tinyxml2::XML_ERROR_FILE_NOT_FOUND || errorHandler == tinyxml2::XML_ERROR_FILE_COULD_NOT_BE_OPENED)
 			return false;
 
-		// Loading Map element and save Map width, heigth in tiles and width, heigth of Tiles in pixels
+		// guarda el mapa
 		tinyxml2::XMLElement* mapNode = doc.FirstChildElement("map");
 		if (mapNode == nullptr)
 			return false;
 
-		SetDimentions(mapNode->FloatAttribute("width"), mapNode->FloatAttribute("height"));				// Get width and heigth for
-		SetTileDimentions(mapNode->FloatAttribute("tilewidth"), mapNode->FloatAttribute("tileheight")); // the map and the tiles
+		SetDimentions(mapNode->FloatAttribute("width"), mapNode->FloatAttribute("height"));				// Get width 
+		SetTileDimentions(mapNode->FloatAttribute("tilewidth"), mapNode->FloatAttribute("tileheight")); // Get height
 
 		// Loading Tilset element
 		tinyxml2::XMLElement* pTileset = mapNode->FirstChildElement("tileset");

@@ -19,18 +19,6 @@ namespace GameXD
 	{
 		player = new Player();
 		player->Init(render, 1.f, "../res/Textures/player.png");
-
-		/*shape = new Shape(render);
-		shape->Init(SHAPE_TYPE::TRIANGLE);
-		shape->SetPos(65.0f, 0.0f, 0.0f);
-		shape->SetColor(0.0f, 0.0f, 1.0f, 0.5f);
-		shape->SetScale(20.f, 20.f, 10.f);*/
-
-		/*shape2 = new Shape(render);
-		shape2->Init(SHAPE_TYPE::QUAD);
-		shape2->SetPos(-65.0f, 0.0f, 0.0f);
-		shape2->SetColor(1.0f, 0.0f, 1.0f, 1.0f);
-		shape2->SetScale(20.f, 20.f, 10.f);*/
 		
 		fireplace = new Sprite(render);
 		fireplace->Init();
@@ -43,13 +31,11 @@ namespace GameXD
 
 		tileMap = new Tilemap(render);
 		tileMap->ImportTileMap("../res/Tiled/engine1_test.tmx", "../res/Textures/tileset.png");
-		tileMap->SetSize(0.5f);
+		tileMap->SetSize(1.0f);
 	}
 
 	void Game::Update()
 	{
-		/*Collision::CollisionUpdate(shape, player->GetSprite());
-		Collision::CollisionUpdate(shape2, player->GetSprite());*/
 		player->Update(input);
 		tileMap->CheckCollision(player->GetSprite());
 	}
@@ -58,8 +44,6 @@ namespace GameXD
 	{
 		tileMap->Draw();
 		fireplace->Draw();
-		/*shape->Draw();
-		shape2->Draw();*/
 		player->Draw();
 	}
 
