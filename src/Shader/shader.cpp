@@ -117,7 +117,6 @@ namespace GL
 
 		if (!success) {
 			glGetProgramInfoLog(shaderId, sizeof(infoLog), NULL, infoLog);
-			std::cout << "Error validating program: " << infoLog << std::endl;
 			return;
 		}
 
