@@ -26,7 +26,7 @@ namespace GL
 	private:
 		float currentTime;
 		int currentFrame;
-		float speed;
+		float frameLength;
 		TextureData* textureData;
 		std::vector<Frame> frames;
 	};

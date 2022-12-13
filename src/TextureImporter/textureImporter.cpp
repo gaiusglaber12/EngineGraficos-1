@@ -18,6 +18,7 @@ namespace GL
 		int textureHeight;
 		int nrChannels;
 
+		//renderer->SetTexture()
 		glGenTextures(1, &textureId);
 		glBindTexture(GL_TEXTURE_2D, textureId);
 		// set the texture wrapping/filtering options (on the currently bound texture object)

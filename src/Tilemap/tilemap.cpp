@@ -278,8 +278,8 @@ namespace GL
 		int left_tile = convertedPosX / tileWidth;
 		int right_tile = (convertedPosX + entity->GetScaleX()) / tileWidth;
 
-		int top_tile = (convertedPosY / tileHeight) * -1;
-		int bottom_tile = ((convertedPosY - entity->GetScaleY()) / tileHeight) * -1;
+		int top_tile = (convertedPosY / tileHeight);
+		int bottom_tile = ((convertedPosY - entity->GetScaleY()) / tileHeight);
 
 		if (left_tile < 0)
 			left_tile = 0;

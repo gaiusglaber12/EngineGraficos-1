@@ -7,7 +7,7 @@ namespace GL
 	{
 		currentTime = 0.0f;
 		currentFrame = 0;
-		speed = 1.0f;
+		frameLength = 1.0f;
 		textureData = nullptr;
 		frames = std::vector<Frame>();
 	}
@@ -19,10 +19,10 @@ namespace GL
 
 	bool Animation::Update()
 	{
-		currentTime += Timer::GetDeltaTime() * speed;
-		if (currentTime > 1.0f)
+		currentTime += Timer::GetDeltaTime();
+		if (currentTime > frameLength)
 		{
-			currentTime = 0;
+			currentTime -= frameLength;
 			currentFrame++;
 			if (currentFrame == frames.size())
 			{
@@ -36,7 +36,7 @@ namespace GL
 	void Animation::SetAnimation(TextureData* textureData, float speed)
 	{
 		this->textureData = textureData;
-		this->speed = speed;
+		this->frameLength = speed;
 	}
 
 	void Animation::AddFrame(float frameX, float frameY, float frameWidth, float frameHeight, int frameCount)
@@ -80,13 +80,17 @@ namespace GL
 			{
 				Frame frame;
 				frame.GetUVCords()[0].u = (atlas.width + (atlas.width * x)) / textureData->width;			// top right
-				frame.GetUVCords()[0].v = (atlas.height * i) / textureData->height;						// top right
-				frame.GetUVCords()[1].u = (atlas.width + (atlas.width * x)) / textureData->width; 		// bottom right
+				frame.GetUVCords()[0].v = (atlas.height * i) / textureData->height;							// top right
+
+				frame.GetUVCords()[1].u = (atlas.width + (atlas.width * x)) / textureData->width; 			// bottom right
 				frame.GetUVCords()[1].v = (atlas.height + (atlas.height * i)) / textureData->height;		// bottom right
+
 				frame.GetUVCords()[2].u = (atlas.width * x) / textureData->width;							// bottom left
 				frame.GetUVCords()[2].v = (atlas.height + (atlas.height * i)) / textureData->height;		// bottom left
+
 				frame.GetUVCords()[3].u = (atlas.width * x) / textureData->width;							// top left 
-				frame.GetUVCords()[3].v = (atlas.height * i) / textureData->height;						// top left 
+				frame.GetUVCords()[3].v = (atlas.height * i) / textureData->height;							// top left 
+
 				frames.push_back(frame);
 				framesCount++;
 				x++;

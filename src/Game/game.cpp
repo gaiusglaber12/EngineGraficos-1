@@ -7,7 +7,6 @@ namespace GameXD
 		player = nullptr;
 		shape = nullptr;
 		shape2 = nullptr;
-		fireplace = nullptr;
 		tileMap = nullptr;
 	}
 
@@ -20,14 +19,8 @@ namespace GameXD
 		player = new Player();
 		player->Init(render, 1.f, "../res/Textures/player.png");
 		
-		fireplace = new Sprite(render);
-		fireplace->Init();
-		fireplace->LoadTexture("../res/Textures/bonfire.png", false);
-		fireplace->SetPos(0.0f, 20.0f, 0.0f);
-		fireplace->SetScale(50.f, 50.f, 50.0f);
-		fireplace->SetCollider(true);
+		
 		GL::AtlasConfig atlas = GL::AtlasConfig(5, 1, 0, 0, 1, 5);
-		fireplace->AddAnimation(atlas,10);
 
 		tileMap = new Tilemap(render);
 		tileMap->ImportTileMap("../res/Tiled/engine1_test.tmx", "../res/Textures/tileset.png");
@@ -43,7 +36,6 @@ namespace GameXD
 	void Game::Draw()
 	{
 		tileMap->Draw();
-		fireplace->Draw();
 		player->Draw();
 	}
 
@@ -66,12 +58,6 @@ namespace GameXD
 			shape2->DeInit();
 			delete shape2;
 			shape2 = nullptr;
-		}
-		if (fireplace != nullptr)
-		{
-			fireplace->DeInit();
-			delete fireplace;
-			fireplace = nullptr;
 		}
 		if (tileMap != nullptr)
 		{

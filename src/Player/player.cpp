@@ -25,23 +25,23 @@ namespace GameXD
 		sprite->Init();
 		sprite->LoadTexture(textureUrl, false);
 		sprite->SetPos(0.f, 55.f, 0.0f);
-		sprite->SetScale(25.f, 25.f, 1.0f);
+		sprite->SetScale(16.f, 16.f, 1.0f);
 		sprite->SetMoveable(true);
 		sprite->SetCollider(true);
 
-		GL::AtlasConfig atlas = GL::AtlasConfig(3, 4, 1, 0, 1, 1);
+		GL::AtlasConfig atlas = GL::AtlasConfig(8, 1, 5, 0, 1, 1);
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(3, 4, 0, 1, 1, 3);
+		atlas = GL::AtlasConfig(8, 1, 2, 0, 1, 2);//LEFT
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(3, 4, 0, 2, 1, 3);
+		atlas = GL::AtlasConfig(8, 1, 6, 0, 1, 2);//RIGHT
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(3, 4, 0, 3, 1, 3);
+		atlas = GL::AtlasConfig(8, 1, 0, 0, 1, 2);//UP
 		sprite->AddAnimation(atlas, 10.f);
 
-		atlas = GL::AtlasConfig(3, 4, 0, 0, 1, 3);
+		atlas = GL::AtlasConfig(8, 1, 4, 0, 1, 2);//DOWN
 		sprite->AddAnimation(atlas, 10.f);
 
 		this->speed = speed;
@@ -103,6 +103,10 @@ namespace GameXD
 		else if (input->IsKeyPressed(KEY_C))
 		{
 			sprite->SetScale(sprite->GetScaleX() + speed, sprite->GetScaleY() + speed, sprite->GetScaleZ());
+		}
+		else if (input->IsKeyPressed(KEY_SPACE))
+		{
+
 		}
 		else
 		{
